@@ -28,3 +28,9 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+#IntelliJ
+*.iws
+workspace.xml
+tasks.xml
+usage.statistics.xml
