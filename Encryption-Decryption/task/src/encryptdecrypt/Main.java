@@ -6,14 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
         TargetOperation targetOperation = TargetOperation.ENCRYPTION;
-        String data = "";
+        Algorithm algorithm = Algorithm.SHIFT;
         int key = 0;
 
+        boolean useData = false;
+        String data = "";
         boolean readFromFile = false;
         String inFileName = "";
         boolean writeToFile = false;
         String outFileName = "";
-        boolean useData = false;
 
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
@@ -55,6 +56,19 @@ public class Main {
                     i++;
                     inFileName = args[i];
                     break;
+                case "-alg" :
+                    i++;
+                    switch (args[i]) {
+                        case "shift" :
+                            algorithm = Algorithm.SHIFT;
+                            break;
+                        case "unicode" :
+                            algorithm = Algorithm.UNICODE;
+                            break;
+                        default :
+                            // default value
+                            algorithm = Algorithm.SHIFT;
+                    }
                 default :
                     break;
             }
@@ -62,7 +76,7 @@ public class Main {
 
         data = inputData(useData, readFromFile, inFileName, data);
 
-        String shifted = performOperation(data, key, targetOperation);
+        String shifted = performAlgorithm(data, key, targetOperation, algorithm);
 
         outputData(writeToFile, outFileName, shifted);
     }
@@ -96,10 +110,10 @@ public class Main {
         return "";
     }
 
-    private static String performOperation(String data, int key, TargetOperation targetOperation) {
+    private static String performAlgorithm(String data, int key, TargetOperation targetOperation, Algorithm algorithm) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < data.length(); i++) {
-            sb.append((char) (data.charAt(i) + targetOperation.getShiftDirection() * key));
+            sb.append(algorithm.operate(data.charAt(i), key, targetOperation));
         }
         return sb.toString();
     }

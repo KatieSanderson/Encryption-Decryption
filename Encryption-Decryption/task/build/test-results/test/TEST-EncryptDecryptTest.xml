@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-01T23:37:02" hostname="LAPTOP-NTIOM630" time="0.074">
+<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-02T22:09:30" hostname="LAPTOP-NTIOM630" time="0.363">
   <properties/>
-  <testcase name="start" classname="EncryptDecryptTest" time="0.074"/>
+  <testcase name="start" classname="EncryptDecryptTest" time="0.363"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[Start test 1
 Start test 2
@@ -9,5 +9,10 @@ Start test 3
 Start test 4
 Start test 5
 Start test 6
+Start test 7
+Start test 8
+Start test 9
+Start test 10
+Start test 11
 ]]></system-err>
 </testsuite>
